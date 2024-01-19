@@ -9,7 +9,7 @@ getApi()
 //Fetch Challange API
 async function getApi() {
   if (fullApiJson.length == 0) {
-    const url = "movies.json";
+    const url = "/static/movies.json";
     const res = await fetch(url);
     const data = await res.json();
     return data;

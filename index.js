@@ -3,6 +3,25 @@ import fs from "fs/promises";
 
 const app = express();
 
+const menuItems = [
+    {
+        lable: 'Filmer',
+        link: '/filmer'
+    },
+    {   title: 'Om Oss',
+        link: '/aboutus',
+    },
+    {
+        lable: 'Nyheter',
+        link: '/newsevents',
+    },
+    {
+        lable: 'Sponsorer',
+        link: '/ourSponsors',
+    }
+]
+
+
 async function renderPage(response, page) {
 
     const headerbuf = await fs.readFile(`./templates/header.html`);
@@ -12,7 +31,7 @@ async function renderPage(response, page) {
     const footerhtml = footerbuf.toString();
 
 
-  const currentPath = page == "/" ? "index" : page;
+  const currentPath = (page == '/') ? "index" : page;
   console.log("Current page: " + currentPath);
   const buf = await fs.readFile(`./static/${currentPath}.html`);
   const html = buf.toString();
@@ -35,6 +54,10 @@ app.get("/aboutus", async (request, response) => {
 
 app.get("/newsevents", async (request, response) => {
   renderPage(response, "newsevents");
+});
+
+app.get("/ourSponsors", async (request, response) => {
+  renderPage(response, "ourSponsors");
 });
 
 app.use("/static", express.static("./static"));

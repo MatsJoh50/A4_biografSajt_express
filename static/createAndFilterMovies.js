@@ -1,5 +1,5 @@
 //Fetch data from the specified file using the fetchData function
-const data = await fetchData("movies.json").catch((error) => console.log(error.message));
+const data = await fetchData("/static/movies.json").catch((error) => console.log(error.message));
 
 //function to fetch data from specific file using fetch API
 async function fetchData(file) {

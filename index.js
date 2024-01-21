@@ -6,9 +6,10 @@ const app = express();
 const menuItems = [
     {
         lable: 'Filmer',
-        link: '/filmer'
+        link: '/filmer',
     },
-    {   title: 'Om Oss',
+    {   
+        lable: 'Om Oss',
         link: '/aboutus',
     },
     {
@@ -18,14 +19,20 @@ const menuItems = [
     {
         lable: 'Sponsorer',
         link: '/ourSponsors',
-    }
+    },
 ]
 
 
 async function renderPage(response, page) {
 
+  const menuItemsList = menuItems.map((item) => {
+    return `<a href="${item.link}" class="header__link">${item.lable}</a>`;
+  });
+
+  const menuString = menuItemsList.join('\n');
+
     const headerbuf = await fs.readFile(`./templates/header.html`);
-    const headerhtml = headerbuf.toString();
+    const headerhtml = headerbuf.toString().replaceAll('%%menu%%', menuString);
 
     const footerbuf = await fs.readFile(`./templates/footer.html`);
     const footerhtml = footerbuf.toString();
@@ -59,6 +66,7 @@ app.get("/newsevents", async (request, response) => {
 app.get("/ourSponsors", async (request, response) => {
   renderPage(response, "ourSponsors");
 });
+
 
 app.use("/static", express.static("./static"));
 app.use("/src", express.static("./src"));

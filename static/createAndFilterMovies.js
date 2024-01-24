@@ -1,11 +1,13 @@
 //Fetch data from the specified file using the fetchData function
-const data = await fetchData("/static/movies.json").catch((error) => console.log(error.message));
+const data = await fetchData("https://plankton-app-xhkom.ondigitalocean.app/api/movies").catch((error) => console.log(error.message));
+
+// const data = await fetchData("/static/movies.json").catch((error) => console.log(error.message));
 
 //function to fetch data from specific file using fetch API
 async function fetchData(file) {
   //Use the fetch function to make an async http request
   const response = await fetch(file);
-
+  
   //check if response status is ok
   if (response.ok) {
     return await response.json();
@@ -14,14 +16,26 @@ async function fetchData(file) {
   }
 }
 //checking the data
-console.log(data);
+console.log(data.data);
 
 //Giving movies the value of all the movies in the data variable.
-const movies = data.movies;
-console.log(movies);
+const impData = data.data.map((obj) =>{
+  return{
+    id: obj.id,
+    ...obj.attributes,
+  }
+});
 
+
+//Testing the JSON data to Array in movies
+printAllMovies(impData);
+function printAllMovies(input) {
+  input.map((x) => {
+    console.log(x);
+  });
+}
 // Function to create a movie card element based on a movie object
-function createMovie(movie) {
+function createMovie(impData) {
   // Get the movie card template from the HTML
   const movieTemplate = document.getElementById("movie-card-template");
   // Clone the template content to create a new movie card
@@ -34,10 +48,10 @@ function createMovie(movie) {
   const kid = template.querySelector(".movie-card__info--kid");
   const isNew = template.querySelector(".movie-card__info--new");
 
-  card.id = movie.id;
-  image.src = movie.poster;
-  title.textContent = movie.title;
-  rating.textContent = movie.rating;
+  card.id = impData.id;
+  image.src = impData.image.url;
+  title.textContent = impData.title;
+  rating.textContent = impData.rating;
 
   //const actors = template.querySelector('.movie-card__info--actors');
   //const description = template.querySelector('.movie-card__info--description');
@@ -56,10 +70,10 @@ function createMovie(movie) {
     director.textContent = movie.director;*/
 
   // Apply additional classes for kid-friendly and new movies
-  if (movie.kid) {
+  if (impData.kid) {
     kid.classList.add("kid");
   }
-  if (movie.new) {
+  if (impData.new) {
     isNew.classList.add("new");
   }
 
@@ -72,10 +86,10 @@ function createMovie(movie) {
 // Function to render a list of movies into a specified container
 function renderMovies(container) {
   // Check if the movies array is defined
-  if (!movies) return;
+  if (!impData) return;
 
   // Select the movies to render (in this case, all movies in the 'movies' array)
-  let moviesToRender = movies;
+  let moviesToRender = impData;
 
   // Iterate through each movie and create/render the corresponding movie card
   moviesToRender.forEach((movie) => {

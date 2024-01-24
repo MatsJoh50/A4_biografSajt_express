@@ -1,7 +1,11 @@
 import express, { response } from "express";
 import fs from "fs/promises";
+import {engine} from "express-handlebars";
 
 const app = express();
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('views', './templates');
 
 const menuItems = [
     {
@@ -24,7 +28,7 @@ const menuItems = [
 
 
 async function renderPage(response, page) {
-
+/*
   const menuItemsList = menuItems.map((item) => {
     return `<a href="${item.link}" class="header__link">${item.lable}</a>`;
   });
@@ -44,6 +48,8 @@ async function renderPage(response, page) {
   const html = buf.toString();
 
   response.send(html.replace('%%header%%', headerhtml).replace('%%footer%%', footerhtml));
+  */
+ response.render(page);
 }
 
 
@@ -75,6 +81,9 @@ app.use("/images", express.static("./images"));
 app.use("/content", express.static("./content"));
 app.use("/template", express.static("./template"));
 
-app.listen(3080);
+const port = 5080
+app.listen(port);
 
-console.log("Listening to port: 3080");
+console.log("=============================")
+console.log(`Listening to port: ${port}`);
+console.log("============================")

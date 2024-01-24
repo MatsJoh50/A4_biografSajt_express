@@ -9,7 +9,8 @@ getApi()
 //Fetch Challange API
 async function getApi() {
   if (fullApiJson.length == 0) {
-    const url = "/static/movies.json";
+    // const url = "/static/movies.json";
+    const url = "https://plankton-app-xhkom.ondigitalocean.app/api/movies";
     const res = await fetch(url);
     const data = await res.json();
     return data;

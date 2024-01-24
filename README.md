@@ -1,4 +1,27 @@
-
+FIlmer APi
+attributes
+: 
+createdAt
+: 
+"2024-01-22T09:24:08.098Z"
+image
+: 
+{url: 'https://m.media-amazon.com/images/M/MV5BNGNhMDIzZT…MjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg'}
+imdbId
+: 
+"tt0110912"
+intro
+: 
+"In the realm of underworld, a series of incidents intertwines the lives of two Los Angeles mobsters, a gangster's wife, a boxer and two small-time criminals."
+publishedAt
+: 
+"2024-01-22T09:24:10.979Z"
+title
+: 
+"Pulp Fiction"
+updatedAt
+: 
+"2024-01-22T10:27:28.540Z"
 Arbetsmetodik och agila projektmetoder Uppgift 2 - en biograf-sajt
 
 ------------------------------------------------------------

@@ -8,9 +8,39 @@
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="static\main.css"
+      href="../../static/main.css"
     />
-    <script src="static\menu.js" defer></script>
+    <script src="../../static/menu.js" defer>
+
+      //Fetch data from the specified file using the fetchData function
+const data = await fetchData("https://plankton-app-xhkom.ondigitalocean.app/api/movies").catch((error) => console.log(error.message));
+
+// const data = await fetchData("/static/movies.json").catch((error) => console.log(error.message));
+
+//function to fetch data from specific file using fetch API
+async function fetchData(file) {
+  //Use the fetch function to make an async http request
+  const response = await fetch(file);
+  
+  //check if response status is ok
+  if (response.ok) {
+    return await response.json();
+  } else {
+    throw new Error(`Something went wrong with the request. Error code: ${response.status}`);
+  }
+}
+//checking the data
+// console.log(data.data);
+
+//Giving movies the value of all the movies in the data variable.
+export const impData = data.data.map((obj) =>{
+  return{
+    id: obj.id,
+    ...obj.attributes,
+  }
+});
+console.log('Main impdata:', impData);
+    </script>
   </head>
   <body>
     <header class="header">

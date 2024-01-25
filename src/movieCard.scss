@@ -1,6 +1,6 @@
 .movie-card {
   width: 300px; /* Adjust the width as needed */
-  height: 400px;
+  height: fit-content;
   margin-top: 30px;
   margin-bottom: 20px;
   cursor: pointer;
@@ -23,7 +23,7 @@
   }
 
   &__prime {
-    margin: 0;
+    margin: 10px;
     background-color: $colorFour;
     display: grid;
   }

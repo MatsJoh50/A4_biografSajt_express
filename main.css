@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: "Sora", sans-serif;
 }
+
 .html {
   overflow-x: hidden;
 }
@@ -398,6 +399,7 @@ body {
   background-color: #404040;
   margin-top: 6vh;
 }
+
 .news {
   background-color: #404040;
   display: flex;
@@ -539,6 +541,7 @@ body {
 .news__containerCardBox--newsButton:hover {
   filter: brightness(90%);
 }
+
 .newsOverlay {
   position: fixed;
   top: 0;
@@ -594,6 +597,7 @@ body {
 .newsOverlay__modal--published {
   margin: 0 0 10px;
 }
+
 .movie-card {
   width: 300px; /* Adjust the width as needed */
   height: fit-content;
@@ -619,13 +623,11 @@ body {
   }
 }
 .movie-card__prime {
-  margin: 10px 0;
+  margin: 10px;
   background-color: #7c7773;
   display: grid;
 }
-.movie-card__title,
-.movie-card__rating,
-.movie-card__pre-rating {
+.movie-card__title, .movie-card__rating, .movie-card__pre-rating {
   text-align: center;
   margin: 0;
 }
@@ -634,8 +636,7 @@ body {
   color: white;
   background-color: #7c7773;
 }
-.movie-card__rating,
-.movie-card__pre-rating {
+.movie-card__rating, .movie-card__pre-rating {
   font-weight: bold;
   color: white;
   background-color: #7c7773;
@@ -698,4 +699,17 @@ body {
   .filmer__main {
     gap: 40px;
   }
+}
+
+.movieinfo {
+  display: flex;
+  margin: auto 0;
+  justify-content: center;
+  align-content: center;
+  width: 80%;
+  color: white;
+}
+
+.movieinfo__poster {
+  width: 300px;
 }

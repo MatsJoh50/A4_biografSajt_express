@@ -1,6 +1,6 @@
 const fullApiJson = [];
 getApi()
-  .then((data) => data.movies.forEach((challenge) => fullApiJson.push(challenge)))
+  .then((impData) => impData.forEach((challenge) => fullApiJson.push(challenge)))
   .then(randomHeroImage)
   .catch((err) => {
     console.log("errors: " + err.message);
@@ -13,7 +13,15 @@ async function getApi() {
     const url = "https://plankton-app-xhkom.ondigitalocean.app/api/movies";
     const res = await fetch(url);
     const data = await res.json();
-    return data;
+    console.log(data.data);
+    const impData = data.data.map((obj) =>{
+      return{
+        id: obj.id,
+        ...obj.attributes,
+      }
+    });
+
+    return impData;
   } else console.log("Api alredy loaded");
 }
 
@@ -29,7 +37,7 @@ function randomHeroImage() {
 
   // Now you can use randomElement in your code
   // Create a linear gradient string
-  var image = "url(" + randomElement.poster + ")";
+  var image = "url(" + randomElement.image.url + ")";
   heroSection.style.backgroundImage = image;
   // Get the .filmer__hero--title element
   var filmerTitle = document.querySelector(".filmer__hero--title");

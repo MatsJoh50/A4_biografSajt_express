@@ -16,7 +16,7 @@ async function fetchData(file) {
   }
 }
 //checking the data
-console.log(data.data);
+// console.log(data.data);
 
 //Giving movies the value of all the movies in the data variable.
 const impData = data.data.map((obj) =>{
@@ -27,13 +27,13 @@ const impData = data.data.map((obj) =>{
 });
 
 
-//Testing the JSON data to Array in movies
-printAllMovies(impData);
-function printAllMovies(input) {
-  input.map((x) => {
-    console.log(x);
-  });
-}
+// //Testing the JSON data to Array in movies
+// printAllMovies(impData);
+// function printAllMovies(input) {
+//   input.map((x) => {
+//     console.log(x);
+//   });
+// }
 // Function to create a movie card element based on a movie object
 function createMovie(impData) {
   // Get the movie card template from the HTML

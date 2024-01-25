@@ -49,7 +49,14 @@ async function renderPage(response, page) {
 
   response.send(html.replace('%%header%%', headerhtml).replace('%%footer%%', footerhtml));
   */
- response.render(page);
+ response.render(page, {
+  menu: menuItems.map(item => {
+    return{
+      lable: item.lable,
+      link: item.link,
+    };
+  })
+ });
 }
 
 

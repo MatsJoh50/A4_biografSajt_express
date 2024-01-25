@@ -87,7 +87,13 @@ app.get("/filmer", async (request, response) => {
 
 app.get("/filmer/:id", async (request, response) => {
   const id = request.params.id;
-  renderPageId(response, "movieinfo", id);
+
+  if(!(impData.find(item => item.id == id))){
+    renderPage(response, "404");
+  }
+  else {
+    renderPageId(response, "movieinfo", id);
+  }
 });
 
 app.get("/aboutus", async (request, response) => {
@@ -99,12 +105,18 @@ app.get("/newsevents", async (request, response) => {
 });
 
 
+
 app.use("/static", express.static("./static"));
 app.use("/src", express.static("./src"));
 app.use("/assets", express.static("./assets"));
 app.use("/images", express.static("./images"));
 app.use("/content", express.static("./content"));
 app.use("/template", express.static("./template"));
+
+app.use("*", (request, response) => {
+  response.status(404);
+  renderPage(response, "404");
+});
 
 app.listen(port);
 

@@ -1,11 +1,34 @@
 .movieinfo{
     display: flex;
-    margin:auto 0;
+    // flex-direction: column;
+    margin:3rem auto;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     width: 80%;
-    color: white;
-}
-.movieinfo__poster{
-    width: 300px;
+    color: $colorFive;
+
+
+    &__poster{
+    }
+    img{
+        width: 30vh;
+        max-width: 100%;
+        height: auto;
+        margin-right:2rem;
+        border-radius: 5px;
+        
+    }
+    &__details{
+        width: 20vw;
+        p{
+            padding: 15px 0;
+        }
+        a{
+            text-decoration:none;
+            color: $colorFive;
+        }
+        a:hover{
+            color: $colorThree;
+        }
+    }
 }

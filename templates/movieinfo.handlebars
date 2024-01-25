@@ -1,7 +1,16 @@
 
 <div class="movieinfo">
 <img src="{{movie.image.url}}" class="movieinfo__poster">
-<p>{{movie.title}}</p>
-<p>{{movie.intro}}</p>
-<p>{{movie.imdbId}}</p>
+<div class="movieinfo__details">
+    <div>
+        <h3>{{movie.title}}</h3>
+    </div>
+    <div>
+        <p>{{movie.intro}}</p>
+    </div>
+    <a href="http://www.imdb.com/video/{{movie.imdbId}}">
+    <div>
+        <p>IDMB Länk: {{movie.title}}</p>
+    </div></a>
+</div>
 </div>

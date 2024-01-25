@@ -6,11 +6,20 @@
   box-sizing: border-box;
   font-family: "Sora", sans-serif;
 }
+
 .html {
   overflow-x: hidden;
 }
 .html.html--overflowHidden {
   overflow: hidden;
+}
+
+.notFound {
+  color: #ffffff;
+  display: flex;
+  margin: 3rem auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
@@ -393,11 +402,17 @@ body {
 .filmer__main {
   width: 100vw;
   height: auto;
+  overflow-x: hidden;
   margin-left: auto;
   margin-right: auto;
   background-color: #404040;
   margin-top: 6vh;
 }
+.filmer__main a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .news {
   background-color: #404040;
   display: flex;
@@ -539,6 +554,7 @@ body {
 .news__containerCardBox--newsButton:hover {
   filter: brightness(90%);
 }
+
 .newsOverlay {
   position: fixed;
   top: 0;
@@ -594,6 +610,7 @@ body {
 .newsOverlay__modal--published {
   margin: 0 0 10px;
 }
+
 .movie-card {
   width: 300px; /* Adjust the width as needed */
   height: fit-content;
@@ -619,13 +636,11 @@ body {
   }
 }
 .movie-card__prime {
-  margin: 10px 0;
+  margin: 10px;
   background-color: #7c7773;
   display: grid;
 }
-.movie-card__title,
-.movie-card__rating,
-.movie-card__pre-rating {
+.movie-card__title, .movie-card__rating, .movie-card__pre-rating {
   text-align: center;
   margin: 0;
 }
@@ -634,8 +649,7 @@ body {
   color: white;
   background-color: #7c7773;
 }
-.movie-card__rating,
-.movie-card__pre-rating {
+.movie-card__rating, .movie-card__pre-rating {
   font-weight: bold;
   color: white;
   background-color: #7c7773;
@@ -698,4 +712,33 @@ body {
   .filmer__main {
     gap: 40px;
   }
+}
+
+.movieinfo {
+  display: flex;
+  margin: 3rem auto;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  color: #ffffff;
+}
+.movieinfo img {
+  width: 30vh;
+  max-width: 100%;
+  height: auto;
+  margin-right: 2rem;
+  border-radius: 5px;
+}
+.movieinfo__details {
+  width: 20vw;
+}
+.movieinfo__details p {
+  padding: 15px 0;
+}
+.movieinfo__details a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.movieinfo__details a:hover {
+  color: #800020;
 }

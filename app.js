@@ -32,7 +32,7 @@ async function fetchData(file) {
 }
 
 //Giving movies the value of all the movies in the data variable.
-const impData = data.data.map((obj) =>{
+export const impData = data.data.map((obj) =>{
   return{
     id: obj.id,
     ...obj.attributes,

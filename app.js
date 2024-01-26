@@ -1,6 +1,7 @@
 import express, { response } from "express";
 import fs from "fs/promises";
 import {engine} from "express-handlebars";
+import {marked} from 'marked';
 
 //Port for express to listen to
 const port = 5080;
@@ -75,6 +76,7 @@ async function renderPageId(response, page, id) {
       };
     }),
     movie: impData[impData.findIndex(item => item.id == id)],
+    marked: marked((impData[impData.findIndex(item => item.id == id)].intro)),
   });
 }
 

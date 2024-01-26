@@ -11,20 +11,6 @@ app.engine('handlebars', engine({partialsDir: './templates/partials'}));
 app.set('view engine', 'handlebars');
 app.set('views', './templates');
 
-const menuItems = [
-    {
-        lable: 'Filmer',
-        link: '/filmer',
-    },
-    {   
-        lable: 'Om Oss',
-        link: '/aboutus',
-    },
-    {
-        lable: 'Nyheter',
-        link: '/newsevents',
-    },
-]
 
 
 
@@ -51,6 +37,21 @@ const impData = data.data.map((obj) =>{
     ...obj.attributes,
   }
 });
+
+export const menuItems = [
+    {
+        lable: 'Filmer',
+        link: '/filmer',
+    },
+    {   
+        lable: 'Om Oss',
+        link: '/aboutus',
+    },
+    {
+        lable: 'Nyheter',
+        link: '/newsevents',
+    },
+]
 
 
 async function renderPage(response, page) {

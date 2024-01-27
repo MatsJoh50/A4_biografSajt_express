@@ -1,3 +1,4 @@
+
 const fullApiJson = [];
 getApi()
   .then((impData) => impData.forEach((challenge) => fullApiJson.push(challenge)))
@@ -24,8 +25,10 @@ async function getApi() {
     return impData;
   } else console.log("Api alredy loaded");
 }
-
 //random movie title poster as bg for hero section
+
+randomHeroImage();
+
 function randomHeroImage() {
   const heroSection = document.querySelector(".filmer__hero");
   // Generate a random index within the length of the array
